@@ -1,0 +1,149 @@
+.SB {
+    @apply relative  ;
+  }
+  
+  .SearchButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .SearchBarPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+    padding-top: 1rem; /* Adjust as needed */
+    color: black;
+    z-index: 1000; /* Ensure the search bar is above other content */
+    overflow-y: auto; 
+    /* Enable vertical scrolling if needed */
+  }
+  .SearchBarPage:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+    z-index: -1; /* Behind the search bar */
+  }
+  .SearchBarSection {
+    max-width: 800px; /* Adjust max-width as needed */
+    width: 100%;
+    background-color: transparent; /* Light background color */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 1rem; /* Adjust padding as needed */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    position: relative; /* Ensure the relative positioning */
+  }
+  
+  .SearchbarMain {
+    @apply flex w-11/12 bg-white  flex-col py-3;
+  }
+  
+  .SearchBarInputDiv {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2; /* Light background color */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 0.5rem; /* Adjust padding as needed */
+    margin-bottom: 1rem;
+  
+    /* Adjust margin-bottom as needed */
+  }
+  
+  .SearchBarInput {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    border: none;
+    outline: none;
+    padding: 0.5rem; /* Adjust padding as needed */
+    background-color: #f2f2f2; /* Light background color */
+    color: black;
+    justify-content: center;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  .SearchBarSearchButton {
+    background-color: transparent;
+    border: none;
+    padding: 0px 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  .SearchBarCloseButton {
+    display: flex;
+    justify-content: end;
+    width: fit-content;
+  }
+  
+  .SearchBarNoResultFound {
+    margin-bottom: 5px; /* Adjust margin-bottom as needed */
+    text-align: center;
+    background-color: white;
+  }
+  
+  .SearchItem {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 1rem; /* Adjust padding as needed */
+    margin-bottom: 1rem; /* Adjust margin-bottom as needed */
+  }
+  
+  .SearchItem:hover {
+    background-color: #f2f2f2; /* Light background color */
+  }
+  
+  .SearchItemMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .SearchHeader {
+    display: flex;
+    align-items: center;
+  }
+  
+  .SearchHeader span {
+    margin-right: 0.5rem; /* Adjust margin-right as needed */
+  }
+  
+  .SearchPara {
+    margin-top: 0.5rem; /* Adjust margin-top as needed */
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .SearchBarSection {
+      width: 90%; /* Adjust width for small screens */
+    }
+  }
+  
+  @media only screen and (min-width: 641px) and (max-width: 768px) {
+    .SearchBarSection {
+      width: 80%; /* Adjust width for medium screens */
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .SearchBarSection {
+      width: 70%; /* Adjust width for large screens */
+    }
+  }
+  
+  @media only screen and (min-width: 1025px) {
+    .SearchBarSection {
+      width: 60%; /* Adjust width for extra large screens */
+    }
+  }
