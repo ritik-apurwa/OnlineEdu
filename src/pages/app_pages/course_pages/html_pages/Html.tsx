@@ -26,12 +26,12 @@ const AttributeList: React.FC<AttributeListProps> = ({ attributes }) => {
 const Html: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col w-full justify-center">
-      <h1 className="text-3xl font-bold text-center mb-8">HTML Tag Reference</h1>
+      <div className="flex py-20 gap-y-4 flex-col w-full justify-center">
+      <h1 className="text-3xl font-bold text-center mt-4 ">HTML Tag Reference</h1>
       <div className="flex flex-col gap-y-4">
         {htmlData.map((tag, index) => (
-          <div key={index} className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold">{tag.tag}</h2>
+          <div key={index} className="bg-white shadow-gray-400  custom_shadow rounded-lg p-6">
+            <h2 className="text-xl text-blue-500 font-semibold">{tag.tag}</h2>
             <p className="text-gray-600 mb-4">{tag.description}</p>
             {tag.attributes.length > 0 && (
               <>

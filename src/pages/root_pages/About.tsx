@@ -4,10 +4,12 @@ import imgs from "../../../public/images/course/join1.png";
 import { FaBookDead } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ReactElement, JSXElementConstructor } from "react";
+import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
     <>
+    <Link to="/#online_courses">Loop</Link>
       <section className="about py-16">
         <div className="container">
           <div className="heading text-center py-12">

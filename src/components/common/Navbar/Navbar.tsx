@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { LinkData } from "../../data/data";
+import { LinkData } from "../../../data/data";
 import { NavLink, useLocation } from "react-router-dom";
 import { BiShoppingBag } from "react-icons/bi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
-import SearchInput from "../fakesearch/SearchInput";
-import { DesktopNav, Logo } from "./Navbar/NavComps";
-import SearchBar from "../searchbar/Searchbar";
+import SearchInput from "../../fakesearch/SearchInput";
+import { DesktopNav, Logo } from "./NavComps";
+import SearchBar from "../../searchbar/Searchbar";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);

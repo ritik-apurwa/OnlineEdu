@@ -2,57 +2,21 @@ import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { FiX } from "react-icons/fi";
 import { BsArrowLeft } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { PiKeyReturnLight } from "react-icons/pi";
 import { LuHash } from "react-icons/lu";
 import "./searchbar.css";
-import { RiSearch2Fill, RiSearchLine } from "react-icons/ri";
-
-// Define your LinkItem interface
-interface searchdata {
-  id: number;
-  title: string;
-  url: string;
-  details: string;
-}
-
-const links: searchdata[] = [
-  { id: 1, title: "Home", url: "/", details: "Welcome to the home page" },
-  {
-    id: 2,
-    title: "JavaScript",
-    url: "/js",
-    details: "Learn more about JavaScript",
-  },
-  { id: 3, title: "CSS", url: "/css", details: "Learn more about CSS" },
-  { id: 4, title: "HTML", url: "/html", details: "Learn more about HTML" },
-  {
-    id: 5,
-    title: "html Introduction",
-    url: "/html#Introduction",
-    details: "Learn more about HTML",
-  },
-  {
-    id: 6,
-    title: "Section 3",
-    url: "/product#section3",
-    details: "Learn more about Section 3",
-  },
-  {
-    id: 7,
-    title: "Revolution",
-    url: "/html#Revolution",
-    details: "Learn more about Section 3",
-  },
-];
+import { RiSearchLine } from "react-icons/ri";
+import { LinkItem, links } from "../../data/search_data";
 
 const SearchBar: React.FC = () => {
   const [value, setValue] = useState<string>("");
+
   const [showResults, setShowResults] = useState<boolean>(false);
-  const [searchResults, setSearchResults] = useState<searchdata[]>([]);
+
+  const [searchResults, setSearchResults] = useState<LinkItem[]>([]);
+
   const inputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (showResults && inputRef.current) {
@@ -87,26 +51,6 @@ const SearchBar: React.FC = () => {
         link.details.toLowerCase().includes(input.toLowerCase())
     );
     setSearchResults(filteredLinks);
-  };
-
-  const handleLinkClick = (url: string) => {
-    if (url.startsWith("/product")) {
-      const sectionId = url.split("#")[1];
-      if (sectionId) {
-        const targetDiv = document.getElementById(sectionId);
-        if (targetDiv) {
-          targetDiv.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-      navigate(url); // Navigate to the product page
-    } else if (url.startsWith("/html")) {
-      navigate(url); // Navigate to the HTML page
-    } else if (url.startsWith("/css")) {
-      navigate(url); // Navigate to the CSS page
-    } else if (url.startsWith("/js")) {
-      navigate(url); // Navigate to the JS page
-    }
-    handleCloseResults(); // Close the search results after navigation
   };
 
   const SearchBarSearchButton = () => {
@@ -181,13 +125,14 @@ const SearchBar: React.FC = () => {
               {value &&
                 searchResults.length > 0 &&
                 searchResults.map((result) => (
-                  <div
+                  <Link
+                    to={result.url}
                     className="cursor-pointer bg-white border-primary-1 border flex flex-col md:m-4 py-4 px-4 lg:m-6 m-2"
                     key={result.id}
-                    onClick={() => handleLinkClick(result.url)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", textDecoration: "none" }}
+                    onClick={handleCloseResults}
                   >
-                    <div className="flex justify-between items-center ">
+                    <div className="flex justify-between items-center">
                       <div className="flex gap-x-2 items-center">
                         <span>
                           <LuHash />
@@ -219,15 +164,15 @@ const SearchBar: React.FC = () => {
                         .split(new RegExp(`(${value})`, "gi"))
                         .map((part, index) =>
                           part.toLowerCase() === value.toLowerCase() ? (
-                            <span key={index} className=" text-purple-400">
+                            <span key={index} className="text-primary-1 px-1 font-semibold">
                               {part}
                             </span>
                           ) : (
-                            <span key={index}>{part}</span>
+                            <span className="text-black" key={index}>{part}</span>
                           )
                         )}
                     </p>
-                  </div>
+                  </Link>
                 ))}
             </div>
           </div>

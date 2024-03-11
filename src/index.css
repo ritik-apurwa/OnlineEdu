@@ -16,8 +16,6 @@ body {
   text-transform: capitalize;
 }
 
-
-
 ul,
 li,
 a {
@@ -28,9 +26,6 @@ a {
   text-decoration: none;
   list-style: none;
 }
-
-
-
 
 .flexSB {
   display: flex;
@@ -52,11 +47,6 @@ a {
   color: #fff;
 }
 
-
-
-
-
-
 button:hover {
   box-shadow: none;
 }
@@ -66,9 +56,6 @@ button:hover {
 }
 
 /*------------global-----------*/
-
-
-
 
 .back h1 {
   font-size: 100px;
@@ -128,10 +115,6 @@ button:hover {
   }
 }
 
-
-
-
-
 .instructor .images {
   position: relative;
   transition: 0.5s ease-in-out;
@@ -144,8 +127,10 @@ button:hover {
   opacity: 1;
 }
 
-
-
 .back {
   background-image: url("../public/images/bg/homebg.webp");
+}
+
+.custom_shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }

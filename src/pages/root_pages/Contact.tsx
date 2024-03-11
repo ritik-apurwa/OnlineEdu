@@ -1,5 +1,3 @@
-import CSS from "../app_pages/course_pages/css_pages/Css";
-
 const Contact: React.FC = () => {
   return (
     <>
@@ -104,9 +102,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-
-    <CSS/>
-      
     </>
   );
 };

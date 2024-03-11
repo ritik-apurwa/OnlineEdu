@@ -9,9 +9,11 @@ import { MdOutlineSchool } from "react-icons/md";
 import Newsletter from "./Newsletter";
 import CopyRight from "./CopyRight";
 
+
 const Footer = () => {
   return (
     <>
+      
       <Newsletter />
       <footer id="footer" className="bg-gray-200 my-10 py-10">
         <div

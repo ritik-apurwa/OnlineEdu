@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsFillLightningChargeFill } from 'react-icons/bs'
 import { FaGraduationCap, FaUsers, FaBookReader } from 'react-icons/fa'
 import { FiSearch } from 'react-icons/fi'
@@ -136,3 +135,9 @@ const tesxt = () => {
 }
 
 export default tesxt
+
+
+
+
+
+
