@@ -7,9 +7,9 @@ import Contact from "./pages/root_pages/Contact"
 
 const App = () => {
   return (
-    <div className="w-screen container max-w-screen-2xl  mx-auto">
+    <div className="w-screen  container max-w-screen-2xl  mx-auto">
       <Navbar/>
-        <div className=" container mx-auto px-4">
+        <div className=" container mx-auto lg:px-4 ">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>

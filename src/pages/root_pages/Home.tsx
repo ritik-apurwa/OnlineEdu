@@ -6,14 +6,27 @@ import heroImgback from "../../../public/images/course/hero-shape-purple.png";
 import CourseCard from "../../components/coursecard/CourseCard";
 import PriceCard from "../../components/pricecard/PriceCard";
 import OnlineCourses from "../../components/online_courses/OnlineCourses";
+import { BiSearch } from "react-icons/bi";
+import SearchInput from "../../components/fakesearch/SearchInput";
+
+const handleSearch = (query: string) => {
+  console.log("Search query:", query);
+  // Implement your search logic here
+};
+
 const Home = () => {
   return (
     <>
-    <section className="bg-secondary py-10 h-[92vh] md:h-full">
-      <div className="container">
-        <div className="flex items-center justify-center md:flex-col">
-          <div className="left w-1/2 text-black md:w-full">
-            <h1 className="text-4xl leading-tight text-black font-semibold">
+      <section className="bg-secondary-1 w-full flex flex-col h-full">
+        <div
+          id="hero_div"
+          className="flex flex-col md:items-center p-4 gap-y-8 md:gap-x-4 md:flex-row h-full w-full"
+        >
+          <div
+            id="hero_header"
+            className="h-1/4 md:h-full md:w-5/12 w-full flex justify-center flex-col items-center  "
+          >
+            <h1 className="lg:text-4xl text-xl md:text-xl leading-tight text-black font-semibold">
               Launch your <br /> Own online learning <br /> Platform
             </h1>
             <h3 className="text-lg mt-3">
@@ -22,87 +35,40 @@ const Home = () => {
             <span className="text-[14px]">
               2 passes (with access to all classes) for $240
             </span>
-
-            <div className="relative text-gray-600 focus-within:text-gray-400 mt-5">
-              <input
-                type="search"
-                className="py-3 text-sm  bg-white rounded-md pl-10 focus:outline-none "
-                placeholder="Search..."
-                autoComplete="off"
-              />
-              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <button
-                  type="submit"
-                  className="p-1 focus:outline-none focus:shadow-outline"
-                >
-                  <FiSearch />
-                </button>
-              </span>
-            </div>
-            <span className="text-[14px]">
-              You`re guaranteed to find something that`s right for you.
-            </span>
           </div>
-          <div className="right w-1/2 md:w-full relative">
-            <div className="images relative">
+
+          <div
+            id="hero_img_hero_imgback"
+            className="h-1/4 md:h-full md:w-7/12 relative"
+          >
+            <div id="hero_back_img_div" className=" h-full ">
               <img
+                id="hero_back_img"
                 src={heroImgback}
                 alt=""
-                className=" absolute top-32 left-10 w-96 md:left-10"
+                className="w-full h-1/4 z-50 object-cover"
               />
-              <div className="img h-[85vh] w-full">
+              <div
+                id="hero_img_div"
+                className="inset-0  absolute h-full w-full"
+              >
                 <img
+                  id="hero_img"
                   src={heroImg}
                   alt=""
-                  className="h-full w-full object-contain z-20 relative"
+                  className="w-full h-[95%]  absolute object-contain z-20 "
                 />
               </div>
             </div>
-            <div className="content">
-              <button className="bg-white shadow-md absolute top-56 left-0 z-30 p-2 flex items-center rounded-md">
-                <div className="icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-orange-400">
-                  <BsFillLightningChargeFill size={25} />
-                </div>
-                <div className="text flex flex-col items-start px-4">
-                  <span className="text-sm text-black">Congrstulations</span>
-                  <span className="text-[12px]">Your admission completed</span>
-                </div>
-              </button>
-              <button className="bg-white shadow-md absolute bottom-32 left-48 z-30 p-2 flex items-center rounded-md pr-8">
-                <div className="icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-blue-400">
-                  <FaGraduationCap size={25} />
-                </div>
-                <div className="text flex flex-col items-start px-4">
-                  <span className="text-sm text-black">450K</span>
-                  <span className="text-[12px]">Assisted Student</span>
-                </div>
-              </button>
-              <button className="bg-white shadow-md absolute top-56 -right-32 z-30 p-2  md:top-96 md:-right-5 flex items-center rounded-md">
-                <div className="icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-orange-400">
-                  <FaUsers size={25} />
-                </div>
-                <div className="text flex flex-col items-start px-4">
-                  <span className="text-sm text-black">
-                    User Experience Class
-                  </span>
-                  <span className="text-[12px]">Tomorrow is our</span>
-                </div>
-              </button>
-              <button className="bg-white shadow-md absolute top-32 right-32 z-30 p-2 flex items-center rounded-md">
-                <div className="icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-indigo-400">
-                  <FaBookReader size={25} />
-                </div>
-              </button>
-            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <CourseCard/>
-    <PriceCard/>
-    <OnlineCourses/>
-    
+        <SearchInput onSearch={handleSearch} />
+      </section>
+
+      <CourseCard />
+      <PriceCard />
+      <OnlineCourses />
     </>
   );
 };

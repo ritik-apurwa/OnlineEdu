@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { PiKeyReturnLight } from "react-icons/pi";
 import { LuHash } from "react-icons/lu";
 import "./searchbar.css";
+import { RiSearch2Fill, RiSearchLine } from "react-icons/ri";
 
 // Define your LinkItem interface
 interface searchdata {
@@ -16,7 +17,7 @@ interface searchdata {
   details: string;
 }
 
- const links: searchdata[] = [
+const links: searchdata[] = [
   { id: 1, title: "Home", url: "/", details: "Welcome to the home page" },
   {
     id: 2,
@@ -108,63 +109,86 @@ const SearchBar: React.FC = () => {
     handleCloseResults(); // Close the search results after navigation
   };
 
-  return (
-    <div className="SB">
-      <button onClick={handleSearchIconClick} className="SearchButton">
-        <BiSearch size="25" />
+  const SearchBarSearchButton = () => {
+    return (
+      <button
+        className="bg-transparent border-none py-0 cursor-pointer"
+        onClick={() => setValue("")}
+      >
+        <BsArrowLeft size="20" />
       </button>
+    );
+  };
+  const SearchBarCloseButton = () => {
+    return (
+      <button className="flex justify-end pl-4" onClick={handleCloseResults}>
+        <FiX size="24" />
+      </button>
+    );
+  };
+  const SearchBarNoResultFound = () => {
+    return (
+      <div className="mb-1 ">
+        {value ? (
+          searchResults.length > 0 ? (
+            <h1 className="SearchBarNoResultFound">
+              " {searchResults.length} results found "
+            </h1>
+          ) : (
+            <h1>Not Available Yet ....... </h1>
+          )
+        ) : null}
+      </div>
+    );
+  };
+
+  return (
+    <div className="relative">
+      <div className="h-12 items-center flex ">
+        <button
+          onClick={handleSearchIconClick}
+          className="bg-transparent border-none cursor-pointer outline-none"
+        >
+          <RiSearchLine size="20" />
+        </button>
+      </div>
 
       {showResults && (
-        <div className="SearchBarPage">
-          <div className="SearchBarSection">
-            <div className="SearchbarMain">
-              <div className="SearchBarInputDiv">
+        <div className="SearchBarPage   ">
+          <div
+            className=" relative
+          w-full shadow-lg mx-4 h-[98vh]  max-w-screen-xl"
+          >
+            <div className="w-full bg-white  flex-col ">
+              <div className="mb-4 bg-light-white  border-primary-1 border flex flex-row items-center p-2 ">
                 <BiSearch size={24} color="gray.900" />
                 <input
                   ref={inputRef}
                   placeholder="Search Here"
                   type="text"
-                  className="SearchBarInput"
+                  className="flex flex-row w-full border-none p-2 bg-light-white text-black outline-none justify-center text-base"
                   value={value}
                   onChange={handleInputChange}
                 />
                 {value ? ( // Check if the input value is not empty
-                  <button
-                    className="SearchBarSearchButton"
-                    onClick={() => setValue("")}
-                  >
-                    <BsArrowLeft size="20" />
-                  </button>
+                  <SearchBarSearchButton />
                 ) : null}
-                <button
-                  className="SearchBarCloseButton"
-                  onClick={handleCloseResults}
-                >
-                  <FiX size="24" />
-                </button>
+                <SearchBarCloseButton />
               </div>
-              <div className="SearchBarNoResultFound">
-                {value ? (
-                  searchResults.length > 0 ? (
-                    <h1 className="SearchBarNoResultFound">
-                      " {searchResults.length} results found "
-                    </h1>
-                  ) : (
-                    <h1>Not Available Yet ....... </h1>
-                  )
-                ) : null}
-              </div>
+
+              <SearchBarNoResultFound />
+
               {value &&
                 searchResults.length > 0 &&
                 searchResults.map((result) => (
                   <div
-                    className="SearchItem"
+                    className="cursor-pointer bg-white border-primary-1 border flex flex-col md:m-4 py-4 px-4 lg:m-6 m-2"
                     key={result.id}
                     onClick={() => handleLinkClick(result.url)}
                     style={{ cursor: "pointer" }}
                   >
-                    <div className="SearchItemMain">
-                      <div className="SearchHeader">
+                    <div className="flex justify-between items-center ">
+                      <div className="flex gap-x-2 items-center">
                         <span>
                           <LuHash />
                         </span>
@@ -189,7 +213,8 @@ const SearchBar: React.FC = () => {
                         <PiKeyReturnLight size={25} />
                       </div>
                     </div>
-                    <p className="SearchPara">
+
+                    <p className="flex">
                       {result.details
                         .split(new RegExp(`(${value})`, "gi"))
                         .map((part, index) =>
