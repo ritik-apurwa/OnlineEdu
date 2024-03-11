@@ -5,7 +5,6 @@ import { BiShoppingBag } from "react-icons/bi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import SearchInput from "../../fakesearch/SearchInput";
 import { DesktopNav, Logo } from "./NavComps";
-import SearchBar from "../../searchbar/Searchbar";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -45,11 +44,8 @@ export const Navbar = () => {
             </ul>
           </div>
 
-          <div className="h-12 flex-row gap-x-2  flex items-center">
-            <button>
-              <SearchBar/>
-            </button>
-
+          <div className="h-12 flex-row  gap-x-2  flex items-center">
+            
             <button>
               <SearchInput onSearch={handleSearch} />
             </button>

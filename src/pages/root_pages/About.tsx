@@ -4,12 +4,10 @@ import imgs from "../../../public/images/course/join1.png";
 import { FaBookDead } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ReactElement, JSXElementConstructor } from "react";
-import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
     <>
-    <Link to="/#online_courses">Loop</Link>
       <section className="about py-16">
         <div className="container">
           <div className="heading text-center py-12">
@@ -75,9 +73,10 @@ const AboutCard = (props: AboutCardProps) => {
 
 const AboutContent = () => {
   return (
-    <section className="mb-16">
-      <div className="container flex md:flex-col">
-        <div className="left w-1/3 md:w-full mr-8 md:mr-0 relative">
+    <section className="mb-16 ">
+      <div className="w-full flex-col  flex md:flex-col">
+
+        <div className="left w-full px-10 md:w-1/3 mr-8 md:mr-0 relative">
           <img src={aboutImg} alt="aboutImg" className=" rounded-xl" />
           <img
             src={aboutImgBanner}
@@ -92,8 +91,9 @@ const AboutContent = () => {
             </span>
           </div>
         </div>
-        <div className="right w-2/3 md:w-full md:mt-16">
-          <div className="heading w-4/5 md:w-full">
+
+        <div className=" w-full justify-center pt-20 px-4 md:w-full md:mt-16">
+          <div className="heading w-full md:w-full">
             <h1 className="text-3xl font-semibold text-black">
               Achieve Your Goals With Educal
             </h1>
@@ -123,6 +123,7 @@ const AboutContent = () => {
             <button className="px-5 py-2 border border-gray-300 rounded-md text-sm">
               Apply Now
             </button>
+
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RiSearchLine } from "react-icons/ri";
+import SearchBar from "../searchbar/Searchbar";
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -8,7 +8,7 @@ interface SearchInputProps {
 
 
 
-const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
+const SearchInput: React.FC<SearchInputProps> = ({ }) => {
 
 
   const [query, setQuery] = useState("");
@@ -22,9 +22,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   };
 
 
-  const handleSearch = () => {
-    onSearch(query);
-  };
+ 
   
 
   useEffect(() => {
@@ -41,13 +39,9 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   return (
     <div className="flex w-fit items-center relative">
       <div className="relative">
-        <button
-          onClick={handleSearch}
-          className="h-12 bg-white rounded-r px-2 flex items-center"
-          style={{ top: 0 }}
-        >
-          <RiSearchLine size={18} />
-        </button>
+      <button className=" md:pr-4 pr-1 sm:pr-4">
+      <SearchBar/>
+      </button>
       </div>
       {isInputVisible && (
         <input
