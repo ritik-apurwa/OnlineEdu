@@ -4,16 +4,22 @@ import { coursesCard } from '../../data/data'
 const CourseCard = () => {
   return (
     <div id="CourseCard" className="py-20">
-    <div className=" flex flex-col sm:grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className=" flex flex-col
+     sm:grid sm:grid-cols-1 px-4   md:grid-cols-2
+      lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+        <h1 className=" py-8 text-gray-800 font-bold text-4xl">
+          Our Online Courses
+        </h1>
       {coursesCard.map((val) => (
         <div
           key={val.id}
-          className="bg-white rounded-md overflow-hidden shadow-lg"
+          className="bg-white custom_shadow  rounded-md overflow-hidden "
         >
           <div className="p-4 flex flex-col justify-between h-full">
             <div>
               <div className="flex items-center mb-4">
-                <div className="w-16 h-16 flex-shrink-0 rounded-full bg-[#1eb2a6]">
+                <div className="w-16 h-16 flex-shrink-0 custom_shadow rounded-full bg-[#1eb2a6]">
                   <img
                     className="w-full h-full rounded-full"
                     src={val.cover}

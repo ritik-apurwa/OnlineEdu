@@ -1,3 +1,513 @@
+// interface BorderProperty {
+//   property_name: string;
+//   value_types: string[];
+//   values_description: Record<string, string>;
+// }
+// interface OutlineProperty extends BorderProperty {
+//   "outline-style": {
+//     property_name: string;
+//     value_types: string[];
+//     values_description: {
+//       none: string;
+//       hidden: string;
+//       dotted: string;
+//       dashed: string;
+//       solid: string;
+//       double: string;
+//       groove: string;
+//       ridge: string;
+//       inset: string;
+//       outset: string;
+//       inherit: string;
+//     };
+//   };
+// }
+
+// const BorderProperties: Record<string, BorderProperty> = 
+
+//   {
+//     "border-width": {
+//       property_name: "border-width",
+//       value_types: ["<length>", "<percentage>", "thin", "medium", "thick"],
+//       values_description: {
+//         "<length>": "Specifies the width of the border using a length value.",
+//         "<percentage>":
+//           "Specifies the width of the border as a percentage of the containing block's width.",
+//         thin: "Sets the border width to a thin value.",
+//         medium: "Sets the border width to a medium value.",
+//         thick: "Sets the border width to a thick value.",
+//       },
+//     },
+//     "border-style": {
+//       property_name: "border-style",
+//       value_types: [
+//         "none",
+//         "hidden",
+//         "dotted",
+//         "dashed",
+//         "solid",
+//         "double",
+//         "groove",
+//         "ridge",
+//         "inset",
+//         "outset",
+//       ],
+//       values_description: {
+//         none: "No border is displayed.",
+//         hidden: "Same as 'none', but acts as a 'background' for the content.",
+//         dotted: "A series of round dots.",
+//         dashed: "A series of short lines.",
+//         solid: "A single solid line.",
+//         double: "Two parallel solid lines with some space between them.",
+//         groove: "A 3D grooved border.",
+//         ridge: "A 3D ridged border.",
+//         inset: "A 3D inset border.",
+//         outset: "A 3D outset border.",
+//       },
+//     },
+//     "border-color": {
+//       property_name: "border-color",
+//       value_types: ["<color>", "transparent"],
+//       values_description: {
+//         "<color>": "Specifies the color of the border.",
+//         transparent: "Sets the border color to transparent.",
+//       },
+//     },
+//     "border-top-width": {
+//       property_name: "border-top-width",
+//       value_types: ["<length>", "<percentage>", "thin", "medium", "thick"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the width of the top border using a length value.",
+//         "<percentage>":
+//           "Specifies the width of the top border as a percentage of the containing block's width.",
+//         thin: "Sets the top border width to a thin value.",
+//         medium: "Sets the top border width to a medium value.",
+//         thick: "Sets the top border width to a thick value.",
+//       },
+//     },
+//     "border-right-width": {
+//       property_name: "border-right-width",
+//       value_types: ["<length>", "<percentage>", "thin", "medium", "thick"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the width of the right border using a length value.",
+//         "<percentage>":
+//           "Specifies the width of the right border as a percentage of the containing block's width.",
+//         thin: "Sets the right border width to a thin value.",
+//         medium: "Sets the right border width to a medium value.",
+//         thick: "Sets the right border width to a thick value.",
+//       },
+//     },
+//     "border-bottom-width": {
+//       property_name: "border-bottom-width",
+//       value_types: ["<length>", "<percentage>", "thin", "medium", "thick"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the width of the bottom border using a length value.",
+//         "<percentage>":
+//           "Specifies the width of the bottom border as a percentage of the containing block's width.",
+//         thin: "Sets the bottom border width to a thin value.",
+//         medium: "Sets the bottom border width to a medium value.",
+//         thick: "Sets the bottom border width to a thick value.",
+//       },
+//     },
+//     "border-left-width": {
+//       property_name: "border-left-width",
+//       value_types: ["<length>", "<percentage>", "thin", "medium", "thick"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the width of the left border using a length value.",
+//         "<percentage>":
+//           "Specifies the width of the left border as a percentage of the containing block's width.",
+//         thin: "Sets the left border width to a thin value.",
+//         medium: "Sets the left border width to a medium value.",
+//         thick: "Sets the left border width to a thick value.",
+//       },
+//     },
+//     "border-top-style": {
+//       property_name: "border-top-style",
+//       value_types: [
+//         "none",
+//         "hidden",
+//         "dotted",
+//         "dashed",
+//         "solid",
+//         "double",
+//         "groove",
+//         "ridge",
+//         "inset",
+//         "outset",
+//       ],
+//       values_description: {
+//         none: "No top border is displayed.",
+//         hidden: "Same as 'none', but acts as a 'background' for the content.",
+//         dotted: "A series of round dots.",
+//         dashed: "A series of short lines.",
+//         solid: "A single solid line.",
+//         double: "Two parallel solid lines with some space between them.",
+//         groove: "A 3D grooved border.",
+//         ridge: "A 3D ridged border.",
+//         inset: "A 3D inset border.",
+//         outset: "A 3D outset border.",
+//       },
+//     },
+//     "border-right-style": {
+//       property_name: "border-right-style",
+//       value_types: [
+//         "none",
+//         "hidden",
+//         "dotted",
+//         "dashed",
+//         "solid",
+//         "double",
+//         "groove",
+//         "ridge",
+//         "inset",
+//         "outset",
+//       ],
+//       values_description: {
+//         none: "No right border is displayed.",
+//         hidden: "Same as 'none', but acts as a 'background' for the content.",
+//         dotted: "A series of round dots.",
+//         dashed: "A series of short lines.",
+//         solid: "A single solid line.",
+//         double: "Two parallel solid lines with some space between them.",
+//         groove: "A 3D grooved border.",
+//         ridge: "A 3D ridged border.",
+//         inset: "A 3D inset border.",
+//         outset: "A 3D outset border.",
+//       },
+//     },
+//     "border-bottom-style": {
+//       property_name: "border-bottom-style",
+//       value_types: [
+//         "none",
+//         "hidden",
+//         "dotted",
+//         "dashed",
+//         "solid",
+//         "double",
+//         "groove",
+//         "ridge",
+//         "inset",
+//         "outset",
+//       ],
+//       values_description: {
+//         none: "No bottom border is displayed.",
+//         hidden: "Same as 'none', but acts as a 'background' for the content.",
+//         dotted: "A series of round dots.",
+//         dashed: "A series of short lines.",
+//         solid: "A single solid line.",
+//         double: "Two parallel solid lines with some space between them.",
+//         groove: "A 3D grooved border.",
+//         ridge: "A 3D ridged border.",
+//         inset: "A 3D inset border.",
+//         outset: "A 3D outset border.",
+//       },
+//     },
+//     "border-left-style": {
+//       property_name: "border-left-style",
+//       value_types: [
+//         "none",
+//         "hidden",
+//         "dotted",
+//         "dashed",
+//         "solid",
+//         "double",
+//         "groove",
+//         "ridge",
+//         "inset",
+//         "outset",
+//       ],
+//       values_description: {
+//         none: "No left border is displayed.",
+//         hidden: "Same as 'none', but acts as a 'background' for the content.",
+//         dotted: "A series of round dots.",
+//         dashed: "A series of short lines.",
+//         solid: "A single solid line.",
+//         double: "Two parallel solid lines with some space between them.",
+//         groove: "A 3D grooved border.",
+//         ridge: "A 3D ridged border.",
+//         inset: "A 3D inset border.",
+//         outset: "A 3D outset border.",
+//       },
+//     },
+//     "border-top-color": {
+//       property_name: "border-top-color",
+//       value_types: ["<color>", "transparent"],
+//       values_description: {
+//         "<color>": "Specifies the color of the top border.",
+//         transparent: "Sets the color of the top border to transparent.",
+//       },
+//     },
+//     "border-right-color": {
+//       property_name: "border-right-color",
+//       value_types: ["<color>", "transparent"],
+//       values_description: {
+//         "<color>": "Specifies the color of the right border.",
+//         transparent: "Sets the color of the right border to transparent.",
+//       },
+//     },
+//     "border-bottom-color": {
+//       property_name: "border-bottom-color",
+//       value_types: ["<color>", "transparent"],
+//       values_description: {
+//         "<color>": "Specifies the color of the bottom border.",
+//         transparent: "Sets the color of the bottom border to transparent.",
+//       },
+//     },
+//     "border-left-color": {
+//       property_name: "border-left-color",
+//       value_types: ["<color>", "transparent"],
+//       values_description: {
+//         "<color>": "Specifies the color of the left border.",
+//         transparent: "Sets the color of the left border to transparent.",
+//       },
+//     },
+//     "border-radius": {
+//       property_name: "border-radius",
+//       value_types: ["<length>", "<percentage>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the radius of the border corners using a length value.",
+//         "<percentage>":
+//           "Specifies the radius of the border corners as a percentage of the containing block's width.",
+//         inherit:
+//           "Specifies that the value of the border-radius property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-top-left-radius": {
+//       property_name: "border-top-left-radius",
+//       value_types: ["<length>", "<percentage>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the radius of the top-left corner of the border using a length value.",
+//         "<percentage>":
+//           "Specifies the radius of the top-left corner of the border as a percentage of the containing block's width.",
+//         inherit:
+//           "Specifies that the value of the border-top-left-radius property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-top-right-radius": {
+//       property_name: "border-top-right-radius",
+//       value_types: ["<length>", "<percentage>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the radius of the top-right corner of the border using a length value.",
+//         "<percentage>":
+//           "Specifies the radius of the top-right corner of the border as a percentage of the containing block's width.",
+//         inherit:
+//           "Specifies that the value of the border-top-right-radius property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-bottom-right-radius": {
+//       property_name: "border-bottom-right-radius",
+//       value_types: ["<length>", "<percentage>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the radius of the bottom-right corner of the border using a length value.",
+//         "<percentage>":
+//           "Specifies the radius of the bottom-right corner of the border as a percentage of the containing block's width.",
+//         inherit:
+//           "Specifies that the value of the border-bottom-right-radius property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-bottom-left-radius": {
+//       property_name: "border-bottom-left-radius",
+//       value_types: ["<length>", "<percentage>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the radius of the bottom-left corner of the border using a length value.",
+//         "<percentage>":
+//           "Specifies the radius of the bottom-left corner of the border as a percentage of the containing block's width.",
+//         inherit:
+//           "Specifies that the value of the border-bottom-left-radius property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-image": {
+//       property_name: "border-image",
+//       value_types: [
+//         "<image>",
+//         "<border-image-slice>",
+//         "<border-image-width>",
+//         "<border-image-source>",
+//         "<border-image-repeat>",
+//         "<border-image-outset>",
+//       ],
+//       values_description: {
+//         "<image>": "Specifies the image to be used as the border.",
+//         "<border-image-slice>": "Specifies how the border image is sliced.",
+//         "<border-image-width>": "Specifies the width of the border image.",
+//         "<border-image-source>":
+//           "Specifies the source of the image to be used as the border.",
+//         "<border-image-repeat>":
+//           "Specifies how the border image should be repeated.",
+//         "<border-image-outset>":
+//           "Specifies the amount by which the border image area extends beyond the border box.",
+//       },
+//     },
+//     "border-image-source": {
+//       property_name: "border-image-source",
+//       value_types: ["<image>", "none"],
+//       values_description: {
+//         "<image>":
+//           "Specifies the source of the image to be used as the border.",
+//         none: "No border image is displayed.",
+//       },
+//     },
+//     "border-image-slice": {
+//       property_name: "border-image-slice",
+//       value_types: ["<number>", "<percentage>", "fill", "none"],
+//       values_description: {
+//         "<number>": "Specifies the size of the slices.",
+//         "<percentage>":
+//           "Specifies the size of the slices as a percentage of the image's size.",
+//         fill: "Specifies that the slices should cover the entire image.",
+//         none: "No slicing is applied.",
+//       },
+//     },
+//     "border-image-width": {
+//       property_name: "border-image-width",
+//       value_types: ["<length>", "<percentage>", "<number>", "auto"],
+//       values_description: {
+//         "<length>": "Specifies the width of the border image.",
+//         "<percentage>":
+//           "Specifies the width of the border image as a percentage of the image's size.",
+//         "<number>":
+//           "Specifies the width of the border image using a number value.",
+//         auto: "Specifies that the browser should calculate the width of the border image.",
+//       },
+//     },
+//     "border-image-outset": {
+//       property_name: "border-image-outset",
+//       value_types: ["<length>", "<number>", "0"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the amount by which the border image area extends beyond the border box.",
+//         "<number>":
+//           "Specifies the amount by which the border image area extends beyond the border box using a number value.",
+//         "0": "No outset is applied.",
+//       },
+//     },
+//     "border-image-repeat": {
+//       property_name: "border-image-repeat",
+//       value_types: ["stretch", "repeat", "round", "space"],
+//       values_description: {
+//         stretch: "The image is stretched to fill the border.",
+//         repeat: "The image is repeated to fill the border.",
+//         round:
+//           "The image is repeated and resized to fill the border without clipping.",
+//         space:
+//           "The image is repeated and spaced out to fill the border without clipping.",
+//       },
+//     },
+//     "border-collapse": {
+//       property_name: "border-collapse",
+//       value_types: ["separate", "collapse", "inherit"],
+//       values_description: {
+//         separate: "Each cell has its own distinct borders.",
+//         collapse: "Borders between cells are collapsed into a single border.",
+//         inherit:
+//           "Specifies that the value of the border-collapse property should be inherited from the parent element.",
+//       },
+//     },
+//     "border-spacing": {
+//       property_name: "border-spacing",
+//       value_types: ["<length>", "inherit"],
+//       values_description: {
+//         "<length>":
+//           "Specifies the distance between the borders of adjacent table cells.",
+//         inherit:
+//           "Specifies that the value of the border-spacing property should be inherited from the parent element.",
+//       },
+//     },
+//     "box-shadow": {
+//       property_name: "box-shadow",
+//       value_types: ["none", "<shadow>", "inherit"],
+//       values_description: {
+//         none: "No shadow is displayed.",
+//         "<shadow>": "Specifies the shadow effect applied to the box.",
+//         inherit:
+//           "Specifies that the value of the box-shadow property should be inherited from the parent element.",
+//       },
+//     },
+//     outline: {
+//       property_name: "outline",
+//       value_types: ["none", "<color>", "<border-style>", "inherit"],
+//       values_description: {
+//         none: "No outline is displayed.",
+//         "<color>": "Specifies the color of the outline.",
+//         "<border-style>": "Specifies the style of the outline.",
+//         inherit:
+//           "Specifies that the value of the outline property should be inherited from the parent element.",
+//       },
+//     },
+//     "outline-width": {
+//       property_name: "outline-width",
+//       value_types: ["<length>", "thin", "medium", "thick", "inherit"],
+//       values_description: {
+//         "<length>": "Specifies the width of the outline.",
+//         thin: "Sets the outline width to a thin value.",
+//         medium: "Sets the outline width to a medium value.",
+//         thick: "Sets the outline width to a thick value.",
+//         inherit:
+//           "Specifies that the value of the outline-width property should be inherited from the parent",
+//       },
+//      "outline-style": {
+//     property_name: "outline-style",
+//     value_types: [
+//       "none",
+//       "hidden",
+//       "dotted",
+//       "dashed",
+//       "solid",
+//       "double",
+//       "groove",
+//       "ridge",
+//       "inset",
+//       "outset",
+//       "inherit",
+//     ],
+//     values_description: {
+//       none: "No outline is displayed.",
+//       hidden: "Same as 'none', but acts as a 'background' for the content.",
+//       dotted: "A series of round dots.",
+//       dashed: "A series of short lines.",
+//       solid: "A single solid line.",
+//       double: "Two parallel solid lines with some space between them.",
+//       groove: "A 3D grooved outline.",
+//       ridge: "A 3D ridged outline.",
+//       inset: "A 3D inset outline.",
+//       outset: "A 3D outset outline.",
+//       inherit:
+//         "Specifies that the value of the outline-style property should be inherited from the parent element.",
+//     },
+//   },
+// },
+//       "outline-color": {
+//         property_name: "outline-color",
+//         value_types: ["<color>", "invert", "inherit"],
+//         values_description: {
+//           "<color>": "Specifies the color of the outline.",
+//           invert: "Inverts the color of the outline.",
+//           inherit:
+//             "Specifies that the value of the outline-color property should be inherited from the parent element.",
+//         },
+//       },
+//       "outline-offset": {
+//         property_name: "outline-offset",
+//         value_types: ["<length>", "inherit"],
+//         values_description: {
+//           "<length>":
+//             "Specifies the space between the outline and the border edge.",
+//           inherit:
+//             "Specifies that the value of the outline-offset property should be inherited from the parent element.",
+//         },
+//       },
+// };
+
+
 export const css_data = [
   {
     border: {

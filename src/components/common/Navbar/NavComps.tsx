@@ -36,7 +36,7 @@ export const MobileNav = () => {
 };
 
 export const DesktopNav = () => {
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const location = useLocation();
   return (
     <ul className="lg:flex flex-row hidden">

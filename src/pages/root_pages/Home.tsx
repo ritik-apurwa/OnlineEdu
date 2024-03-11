@@ -3,7 +3,7 @@ import heroImgback from "../../../public/images/course/hero-shape-purple.png";
 import CourseCard from "../../components/coursecard/CourseCard";
 import PriceCard from "../../components/pricecard/PriceCard";
 import OnlineCourses from "../../components/online_courses/OnlineCourses";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 const Home: React.FC<{ scrollToDiv: (divId: string) => void }> = ({
@@ -81,7 +81,7 @@ const Home: React.FC<{ scrollToDiv: (divId: string) => void }> = ({
         <section id="price_card">
           <PriceCard />
         </section>
-        <Link to="#online_course">gg</Link>
+
         <OnlineCourses />
       </section>
     </>
