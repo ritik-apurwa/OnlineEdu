@@ -5,10 +5,10 @@ import { About } from "./pages/root_pages/About";
 import Contact from "./pages/root_pages/Contact";
 import Footer from "./components/common/footer/Footer";
 import OnlineCourses from "./components/online_courses/OnlineCourses";
-import CourseCard from "./components/coursecard/CourseCard";
 import Html from "./pages/app_pages/course_pages/html_pages/Html";
 import CSS from "./pages/app_pages/course_pages/css_pages/Css";
 import Js from "./pages/app_pages/course_pages/js_pages/Js";
+import PriceCard from "./components/pricecard/PriceCard";
 
 const scrollToDiv = (divId: string) => {
   const targetDiv = document.getElementById(divId);
@@ -28,8 +28,8 @@ const App = () => {
           <Route path="/" element={<Home scrollToDiv={scrollToDiv} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/onlinecouses" element={<OnlineCourses />} />
-          <Route path="/coursecard" element={<CourseCard />} />
+          <Route path="/onlinecourses" element={<OnlineCourses />} />
+          <Route path="/pricecard" element={<PriceCard />} />
           <Route path="/html" element={<Html />} />
           <Route path="/css" element={<CSS />} />
           <Route path="/js" element={<Js />} />

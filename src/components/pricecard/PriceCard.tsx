@@ -3,7 +3,7 @@ import { price } from '../../data/data'
 const PriceCard = () => {
   return (
     <div id='price_cards_section' className="flex flex-col
-     md:grid md:gap-x-4 gap-y-4 px-4
+     md:grid md:gap-x-4 pb-10 gap-y-4 px-4
       md:grid-cols-2 lg:grid-cols-3
       
        justify-between">
