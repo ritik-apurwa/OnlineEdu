@@ -9,6 +9,7 @@ import Html from "./pages/app_pages/course_pages/html_pages/Html";
 import CSS from "./pages/app_pages/course_pages/css_pages/Css";
 import Js from "./pages/app_pages/course_pages/js_pages/Js";
 import PriceCard from "./components/pricecard/PriceCard";
+import Learning from "./learning/Learning";
 
 const scrollToDiv = (divId: string) => {
   const targetDiv = document.getElementById(divId);
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/html" element={<Html />} />
           <Route path="/css" element={<CSS />} />
           <Route path="/js" element={<Js />} />
+          <Route path="/learning" element={<Learning />} />
         </Routes>
       </div>
       <Footer />

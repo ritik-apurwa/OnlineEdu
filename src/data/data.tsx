@@ -45,6 +45,11 @@ export const LinkData = [
       title: "js",
       url: "/js",
     },
+    {
+      id: 9,
+      title: "learning",
+      url: "/learning",
+    },
   ]
   
   export const homeAbout = [
